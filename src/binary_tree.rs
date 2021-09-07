@@ -3,7 +3,6 @@ use std::collections::VecDeque;
 use std::rc::Rc;
 
 pub type Node = Option<Rc<RefCell<BinaryTreeNode>>>;
-pub type TreeNode = Rc<RefCell<BinaryTreeNode>>;
 #[derive(Clone, Debug)]
 pub struct BinaryTreeNode {
     pub val: i32,
@@ -32,7 +31,7 @@ impl BinaryTree {
         self.root.clone()
     }
 
-    pub fn except_order_add(&mut self, arr: Vec<Option<i32>>) {
+    pub fn insert(&mut self, arr: Vec<Option<i32>>) {
         let mut target = VecDeque::from(arr);
         let mut queue: VecDeque<(Node, usize)> = VecDeque::new();
         if let Some(node) = self.root.as_ref() {
@@ -123,15 +122,15 @@ mod tests {
     fn binary_test() {
         use super::*;
         let mut tree = BinaryTree::new(1);
-        tree.except_order_add(Vec::from([None, Some(1), None, None, None, Some(1)]));
+        tree.insert(Vec::from([None, Some(1), None, None, None, Some(1)]));
         assert_eq!(tree.bfs(), Vec::from([1, 1, 1]));
         let mut tree2 = BinaryTree::new(2);
-        tree2.except_order_add(Vec::from([Some(3), Some(0), None, None, None, Some(10)]));
+        tree2.insert(Vec::from([Some(3), Some(0), None, None, None, Some(10)]));
         assert_eq!(tree2.bfs(), Vec::from([2, 3, 0, 10]));
         tree.display();
         tree2.display();
         let mut tree3 = BinaryTree::new(10);
-        tree3.except_order_add(Vec::from([
+        tree3.insert(Vec::from([
             Some(1),
             Some(2),
             Some(3),
