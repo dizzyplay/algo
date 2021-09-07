@@ -1,4 +1,4 @@
-use crate::binary_tree::Node;
+use crate::utils::binary_tree::{BinaryTree, Node};
 struct Solution;
 
 impl Solution {
@@ -22,9 +22,8 @@ mod tests {
     #[test]
     fn answer() {
         use super::*;
-        use crate::binary_tree;
 
-        let mut tree = binary_tree::BinaryTree::new(10);
+        let mut tree = BinaryTree::new(10);
         tree.insert(vec![Some(2), Some(3), Some(3), Some(10)]);
         tree.display();
         assert_eq!(Solution::solution(tree.root(), 12), false);
