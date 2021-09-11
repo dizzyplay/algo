@@ -7,8 +7,6 @@ impl Solution {
             let s = target - node.borrow().val;
             if s == 0 && node.borrow().left.is_none() && node.borrow().right.is_none() {
                 return true;
-            } else if s < 0 {
-                return false;
             }
             return Self::solution(node.borrow().left.clone(), s)
                 || Self::solution(node.borrow().right.clone(), s);
