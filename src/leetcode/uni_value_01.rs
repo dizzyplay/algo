@@ -4,8 +4,6 @@ use std::collections::VecDeque;
 
 impl Solution {
     fn is_uni(root: Node) -> (i32, bool) {
-        let mut t = 0;
-        let mut f = false;
         match root.as_ref() {
             Some(n) => {
                 match (&n.borrow().left, &n.borrow().right) {
@@ -13,36 +11,36 @@ impl Solution {
                         return (1, true);
                     }
                     (Some(l), None) => {
-                        let (t1, f1) = Self::is_uni(Some(l.clone()));
-                        t = t1;
-                        f = f1;
+                        let (t, f) = Self::is_uni(Some(l.clone()));
                         if l.borrow().val == n.borrow().val && f {
                             return (t + 1, true);
+                        } else {
+                            return (t, false);
                         }
                     }
                     (None, Some(r)) => {
-                        let (t1, f1) = Self::is_uni(Some(r.clone()));
-                        t = t1;
-                        f = f1;
+                        let (t, f) = Self::is_uni(Some(r.clone()));
                         if r.borrow().val == n.borrow().val && f {
                             return (t + 1, true);
+                        } else {
+                            return (t, false);
                         }
                     }
                     (Some(l), Some(r)) => {
                         let (t1, f1) = Self::is_uni(Some(l.clone()));
                         let (t2, f2) = Self::is_uni(Some(r.clone()));
-                        t = t1 + t2;
-                        f = f1 && f2;
+                        let f = f1 && f2;
                         if l.borrow().val == n.borrow().val && r.borrow().val == n.borrow().val && f
                         {
-                            return (t + 1, true);
+                            return (t1 + t2 + 1, true);
+                        } else {
+                            return (t1 + t2, false);
                         }
                     }
                 };
             }
             None => return (0, false),
         };
-        (t, false)
     }
     fn solution(root: Node) -> i32 {
         Self::is_uni(root.clone()).0
