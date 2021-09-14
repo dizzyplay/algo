@@ -1,6 +1,5 @@
 struct Solution;
 use crate::utils::binary_tree::{BinaryTree, Node};
-use std::collections::VecDeque;
 
 impl Solution {
     fn is_uni(root: Node) -> (i32, bool) {
