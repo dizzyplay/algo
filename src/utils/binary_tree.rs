@@ -10,6 +10,16 @@ pub struct BinaryTreeNode {
     pub right: Node,
 }
 
+impl BinaryTreeNode {
+    pub fn new(val:i32) -> Self {
+        BinaryTreeNode{
+            val,
+            left: None,
+            right: None
+        }
+    }
+}
+
 #[derive(Debug)]
 pub struct BinaryTree {
     root: Node,
