@@ -1,21 +1,25 @@
-use std::borrow::Borrow;
 use crate::utils::binary_tree::{BinaryTree, BinaryTreeNode};
+use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
-use std::cell::RefCell;
 
 struct Solution;
 
 impl Solution {
-    pub fn solution(inorder:Vec<i32>, postorder:Vec<i32>) {
+    pub fn solution(inorder: Vec<i32>, postorder: Vec<i32>) {
         let mut p = Rc::new(RefCell::new(postorder));
         let mut m = HashMap::new();
-        inorder.iter().enumerate().for_each(|(idx,v)| {
-            m.insert(idx as i32,v);
+        inorder.iter().enumerate().for_each(|(idx, v)| {
+            m.insert(idx as i32, v);
         });
         let m = Rc::new(m);
-        println!("{:?}",m);
-        fn helper(in_left:usize, in_right:usize, pc: Rc<RefCell<Vec<i32>>>, mm: Rc<HashMap<i32,&i32>>) -> Option<BinaryTreeNode> {
+        println!("{:?}", m);
+        fn helper(
+            in_left: usize,
+            in_right: usize,
+            pc: Rc<RefCell<Vec<i32>>>,
+            mm: Rc<HashMap<i32, &i32>>,
+        ) -> Option<BinaryTreeNode> {
             if in_left > in_right {
                 return None;
             }
@@ -33,9 +37,9 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn answer(){
+    fn answer() {
         use super::*;
-        let s = Solution::solution([3,2,1].to_vec(),[3,1,2].to_vec());
+        let s = Solution::solution([3, 2, 1].to_vec(), [3, 1, 2].to_vec());
         println!("{:?}", s);
     }
 }
