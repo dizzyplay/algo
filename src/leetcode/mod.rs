@@ -1,3 +1,4 @@
+mod climb_stairs;
 mod construct_tree;
 mod num_decoding;
 mod path_sum;
