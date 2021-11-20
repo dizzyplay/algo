@@ -6,11 +6,11 @@ struct Solution;
 impl Solution {
     pub fn solution(s: String) -> i32 {
         let s = Rc::new(s);
-        let mut map = Rc::new(RefCell::new(HashMap::new()));
+        let map = Rc::new(RefCell::new(HashMap::new()));
 
         return Self::helper(0, s, map.clone());
     }
-    pub fn helper(idx: usize, s: Rc<String>, mut map: Rc<RefCell<HashMap<usize, i32>>>) -> i32 {
+    pub fn helper(idx: usize, s: Rc<String>, map: Rc<RefCell<HashMap<usize, i32>>>) -> i32 {
         if let Some(v) = map.borrow().get(&idx) {
             return *v;
         }

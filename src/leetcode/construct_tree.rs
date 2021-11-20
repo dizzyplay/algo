@@ -7,7 +7,7 @@ struct Solution;
 
 impl Solution {
     pub fn solution(inorder: Vec<i32>, postorder: Vec<i32>) {
-        let mut p = Rc::new(RefCell::new(postorder));
+        let p = Rc::new(RefCell::new(postorder));
         let mut m = HashMap::new();
         inorder.iter().enumerate().for_each(|(idx, v)| {
             m.insert(idx as i32, v);
@@ -25,7 +25,7 @@ impl Solution {
             }
             let val = pc.clone().borrow_mut().pop().unwrap();
             let index = mm.get(&val).unwrap();
-            let mut root = BinaryTree::new(val).root();
+            let root = BinaryTree::new(val).root();
             println!("{}", index);
             root.unwrap().borrow_mut().right = Some(Rc::new(RefCell::new(BinaryTreeNode::new(1))));
             Some(BinaryTreeNode::new(1))
