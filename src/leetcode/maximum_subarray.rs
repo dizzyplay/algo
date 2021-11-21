@@ -3,6 +3,10 @@ struct Solution;
 impl Solution {
     pub fn solution(arr: Vec<i32>) -> i32 {
 
+        if arr.len() < 2 {
+            return arr[0];
+        }
+
         let mut current = arr[0];
         let mut max = arr[0];
 
