@@ -1,40 +1,43 @@
-// https://www.acmicpc.net/problem/2309
-#include <bits/stdc++.h>
+#include <vector>
+#include <numeric>
+#include <algorithm>
+#include <iostream>
 using namespace std;
+vector<int> r;
+int m=7;
+int a[9];
 
-int arr[9]= {20,7,23,19,10,15,25,8,13};
-int arrs = 9;
+bool combi(int l){
+    if (r.size()==m){
+		cout << endl;
+        vector<int> result;
+        for(auto n: r){
+            result.push_back(a[n]);
+        }
+        if (100 == accumulate(result.begin(), result.end(),0)){
+            sort(result.begin(), result.end());
+            for(auto n: result){
+                cout << n << endl;
+            }
+            return 1;
+        }
+        return 0;
+    }
 
-vector<int> v;
-int m = 7;
-bool combination(int n) {
-	if (n == m) {
-		vector<int> rr;
-		for(auto x: v) {
-			cout << x << " ";
-			rr.push_back(arr[x]);
-		}
-		cout << "----" << endl;
-		if(100 == accumulate(rr.begin(), rr.end(), 0)) {
-			sort(rr.begin(), rr.end());
-			for(auto x: rr) {
-				cout << x << endl;
-			}
-			return 1;
-		}
-		return 0;
-	}
-	for(int i =n; i<arrs; i++) {
-		v.push_back(i);
-		bool f = combination(n+1);
-		if (f) return 1;
-		v.pop_back();
-	}
-	return false;
-
+    for(int i=l; i<9; i++){
+        r.push_back(i);
+        bool f = combi(i+1);
+        if (f) return 1;
+        r.pop_back();
+    }
+	return 0;
 }
 
+
 int main(){
-	combination(0);
-	return 0;
+	for(int i=0; i<9; i++){
+		cin >> a[i];
+	}
+    combi(0);
+    return 0;
 }
