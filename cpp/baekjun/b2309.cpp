@@ -9,7 +9,6 @@ int a[9];
 
 bool combi(int l){
     if (r.size()==m){
-		cout << endl;
         vector<int> result;
         for(auto n: r){
             result.push_back(a[n]);
