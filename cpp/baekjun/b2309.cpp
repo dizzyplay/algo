@@ -34,6 +34,9 @@ bool combi(int l){
 
 
 int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 	for(int i=0; i<9; i++){
 		cin >> a[i];
 	}

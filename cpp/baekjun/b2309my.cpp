@@ -35,6 +35,7 @@ bool combination(int n) {
 }
 
 int main(){
+	ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	combination(0);
 	return 0;
 }
