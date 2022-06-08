@@ -2,3 +2,4 @@ https://www.acmicpc.net/problem/10808
 
 map을 굳이 안써도 됨.
 a - 'a' 는 'a'가 숫자형으로 형변환됨.
+풀이는 카운팅배열로 접근.
