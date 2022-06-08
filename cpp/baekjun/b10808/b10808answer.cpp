@@ -5,9 +5,7 @@ string s;
 int cnt[26];
 int main(){
 	cin >> s;
-	for(char a: s) {
-		cnt[a-'a']++;
-	}
+	for(char a: s)  cnt[a-'a']++;
 	for(auto n: cnt) cout << n << " ";
-	return 1;
+	return 0;
 }
