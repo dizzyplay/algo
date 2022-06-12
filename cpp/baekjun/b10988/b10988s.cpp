@@ -8,5 +8,5 @@ int main(){
 	reverse(temp.begin(), temp.end());
 	if(temp == s) cout << 1;
 	else cout << 0;
-	return 1;
+	return 0;
 }
