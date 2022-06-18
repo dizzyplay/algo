@@ -1,17 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-int cnt[200];
+int cnt[130];
 string s,ret;
+char mid;
 int main(){
-
 	cin >> s;
-
 	for(auto c: s){
 		cnt[(int)c]++;
 	}
-
-	char mid;
-
 	for(int i='Z'; i>='A'; i--){
 		if (cnt[i]) {
 			if(cnt[i] & 1) {
@@ -20,7 +16,6 @@ int main(){
 					return 0;
 				}
 				mid = (char)i;
-				cnt[i]--;
 			}
 			for(int j=0; j<cnt[i] /2; j++){
 				ret = (char)i+ ret;
@@ -30,7 +25,6 @@ int main(){
 	}
 
 	if (mid){
-		cout << mid << endl;
 		ret.insert(ret.size()/2 , 1, mid);
 	}
 	cout << ret << endl;
