@@ -14,21 +14,25 @@ int main(){
 	string ret="";
 	for(auto v: _map){
 		if (last) {
-			cout << "I'm sorry Hansoo";
+			cout << "I'm Sorry Hansoo";
 			return 0;
 		}
 		if (v.second % 2 != 0){
 			last = v.first;
+		}else {
+			for(int i=0; i<v.second / 2; i++){
+				ret.push_back(v.first);
+			}
 		}
-		ret.push_back(v.first);
 	}
 
 	string result;
+	cout << ret << endl;
 	result.append(ret);
 	reverse(ret.begin(), ret.end());
-	ret.push_back(last);
+	result.push_back(last);
 	result.append(ret);
-	cout << result;
+	cout << result << "\n";
 
 	return 0;
 }
