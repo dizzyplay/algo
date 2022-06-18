@@ -1,38 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
+int cnt[200];
+string s,ret;
 int main(){
-	string s;
-	map<char,int> _map;
 
 	cin >> s;
 
 	for(auto c: s){
-		_map[c]++;
+		cnt[(int)c]++;
 	}
 
-	char last;
-	string ret="";
-	for(auto v: _map){
-		if (last) {
-			cout << "I'm Sorry Hansoo";
-			return 0;
-		}
-		if (v.second % 2 != 0){
-			last = v.first;
-		}else {
-			for(int i=0; i<v.second / 2; i++){
-				ret.push_back(v.first);
+	char mid;
+
+	for(int i='Z'; i>='A'; i--){
+		if (cnt[i]) {
+			if(cnt[i] & 1) {
+				if (mid) {
+					cout << "I'm Sorry Hansoo";
+					return 0;
+				}
+				mid = (char)i;
+				cnt[i]--;
+			}
+			for(int j=0; j<cnt[i] /2; j++){
+				ret = (char)i+ ret;
+				ret += (char)i;
 			}
 		}
 	}
 
-	string result;
+	if (mid){
+		cout << mid << endl;
+		ret.insert(ret.size()/2 , 1, mid);
+	}
 	cout << ret << endl;
-	result.append(ret);
-	reverse(ret.begin(), ret.end());
-	result.push_back(last);
-	result.append(ret);
-	cout << result << "\n";
 
 	return 0;
 }
