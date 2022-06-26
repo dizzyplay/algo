@@ -3,13 +3,11 @@ using namespace std;
 int n,m;
 int arr[104][104];
 int x,y;
-
 void bfs(){
 	queue<pair<int,int>> q;
 	q.push({1, 1});
 	while(q.size() > 0) {
 		tie(y,x) = q.front();
-		//cout << y << x << " " << arr[y][x] << endl;
 		q.pop();
 		if(arr[y + 1][x] == 1){
 			q.push({y+1, x});
@@ -40,13 +38,6 @@ int main(){
 		}
 	}
 	bfs();
-	//for(int i=1; i<=n; i++){
-	//	for(int j=1; j<=m; j++){
-	//		cout << arr[i][j];
-	//	}
-	//	cout << endl;
-	//}
 	cout << arr[n][m];
-
 	return 0;
 }
