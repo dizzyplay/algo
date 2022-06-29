@@ -1,5 +1,5 @@
 https://www.acmicpc.net/problem/2178 -complete
-https://www.acmicpc.net/problem/1012
+https://www.acmicpc.net/problem/1012 -complete
 https://www.acmicpc.net/problem/2468
 https://www.acmicpc.net/problem/2583
 https://www.acmicpc.net/problem/1992
