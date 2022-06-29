@@ -15,21 +15,14 @@ void bfs(int y, int x){
 		for(int i=0; i<4; i++){
 			int ny = dy[i] + y;
 			int mx = dx[i] + x;
-			if(ny < 0 || mx < 0 || arr[ny][mx] != 1) continue;
+			if(ny < 0 || mx < 0 || arr[ny][mx] == 0) continue;
 			if(ny >= n || mx >= m) continue;
+			arr[ny][mx] = 0;
 			_q.push({ny,mx});
 		}
 		arr[y][x] = 0;
 	}
 	ret += 1;
-}
-
-void printArr(){
-	for(int i=0; i<50; i++){
-		for(int j=0; j<50; j++){
-			arr[i][j] = 0;
-		}
-	}
 }
 
 int main(){
