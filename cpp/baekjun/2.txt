@@ -1,7 +1,7 @@
 https://www.acmicpc.net/problem/2178 -solve
 https://www.acmicpc.net/problem/1012 -solve
 https://www.acmicpc.net/problem/2468 -solve
-https://www.acmicpc.net/problem/2583
+https://www.acmicpc.net/problem/2583 -solve
 https://www.acmicpc.net/problem/1992
 https://www.acmicpc.net/problem/2828
 https://www.acmicpc.net/problem/2910
